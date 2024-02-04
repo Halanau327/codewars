@@ -1,6 +1,6 @@
 function squareDigits(num) {
     const numStr = num.toString();
-    let result = '';
+    let result = 0;
     for (let i = 0; numStr.length; i++) {
         const digit = parseInt(numStr[i]);
         const square = digit * digit;
@@ -9,3 +9,4 @@ function squareDigits(num) {
     return result;
 }
 
+squareDigits(255)

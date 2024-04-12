@@ -1,13 +1,12 @@
-const matches = ["1:0","2:0","3:0","4:4","2:2","3:3","1:4","2:3","2:4","3:4"]
-let x = 0;
-let y = 0;
-let totalPoints = 0;
+const matches = ["1:1", "2:2", "3:3", "4:4", "2:2", "3:3", "4:4", "3:3", "4:4", "4:4"]
+
 
 function points(games) {
+    let totalPoints = 0;
     games.forEach((t) => {
         let [scoreX, scoreY] = t.split(":")
-        x = parseFloat(scoreX);
-        y = parseFloat(scoreY)
+        let x = parseFloat(scoreX);
+        let y = parseFloat(scoreY)
         if (x > y) {
             totalPoints += 3;
         } else if (x === y) {

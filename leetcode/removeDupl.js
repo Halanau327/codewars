@@ -1,9 +1,8 @@
-function isPalindrome(s) {
-    const normalized = s.toLowerCase().replace(/[^a-z0-9]/g, "")
-    return normalized.split("").reverse().join("") === normalized
-}
+var removeDuplicates = function (nums) {
+    return new Set(nums).size;
+};
 
-console.log(isPalindrome("A man, a plan, a canal: Panama"))
+console.log(removeDuplicates([0,0,1,1,1,2,2,3,3,4]))
 
 // REDUCE const sum = nums.reduce(function (acc - накапливающийся, curr - текущий элемент массива) { return acc + curr }, 0);
 // SPLIT - str.split(",") = "Hello,World,JavaScript" => ["Hello", "World", "JavaScript"]
@@ -21,4 +20,3 @@ console.log(isPalindrome("A man, a plan, a canal: Panama"))
 // MAP - myArray.map(item => item * 2).sort((a, b) => a - b) - [0, 2, 4, 6, 8, 14, 16]
 // new Set() - add() — добавить элемент, delete() — удалить элемент, has() — проверить, есть ли элемент в коллекции, clear() — очистить коллекцию.
 // new Map() - коллекция для хранения данных любого типа в виде пар [ключ, значение]
-

@@ -1,16 +1,8 @@
-function solution(number) {
-    if (number < 0) return 0;
-    let collection = new Set()
-    for (let i = 0; i < number; i++) {
-        if (i % 3 === 0 || i % 5 === 0) {
-            collection.add(i)
-        }
-    }
-    return [...collection].reduce((acc, cur) => acc + cur, 0)
+function spinWords(string){
+    return string.split(" ").map((w) => w.length >= 5 ? w.split("").reverse().join("") : w).join(" ");
 }
 
-solution(33)
-
+spinWords("Hey fellow warriors")
 
 // REDUCE const sum = nums.reduce(function (acc - накапливающийся, curr - текущий элемент массива) { return acc + curr }, 0);
 // SPLIT - str.split(",") = "Hello,World,JavaScript" => ["Hello", "World", "JavaScript"]

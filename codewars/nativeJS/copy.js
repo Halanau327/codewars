@@ -34,3 +34,17 @@
 //         }
 //     }
 // }
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isPalindrome = function(s) {
+    const reversed = s.split("").reverse().join("").toLowerCase();
+    console.log(s)
+    console.log(reversed)
+    return reversed === s;
+
+};
+
+isPalindrome("A man, a plan, a canal: Panama")

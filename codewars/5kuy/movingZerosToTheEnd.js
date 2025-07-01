@@ -1,26 +1,22 @@
-function beeramid(bonus, price) {
-    const maxCans = Math.floor(bonus / price);
-    let totalCansUsed = 0;
-    let level = 0;
-
-    while (true) {
-        level++
-        console.log(level)
-        const cansInThisLevel = level * level;
-        totalCansUsed = totalCansUsed + cansInThisLevel
-
-        if (totalCansUsed > maxCans) {
-            return level - 1;
-        } else if (totalCansUsed === maxCans) {
-            return level
+function moveZeros(arr) {
+    let zeroArr = []
+    for (let i = arr.length - 1; i >= 0; i--) {
+        if (arr[i] === 0) {
+          arr.splice(i, 1)
+            zeroArr.push(0)
         }
     }
+    return arr.concat(zeroArr)
 }
 
-console.log(beeramid(1500,2))
 
-//1 4 9 16 25 36 49 64 81 100 121 144
-//1 3 5 7 9 11 13 15 17 19 21 23
+// function moveZeros1(arr) {
+//     const nonZeros = arr.filter(x => x !== 0);
+//     const zeros = arr.filter(x => x === 0);
+//     return nonZeros.concat(zeros);
+// }
+
+moveZeros([false,1,0,1,2,0,1,3,"a"])
 
 
 // REDUCE const sum = nums.reduce(function (acc - накапливающийся, curr - текущий элемент массива) { return acc + curr }, 0);

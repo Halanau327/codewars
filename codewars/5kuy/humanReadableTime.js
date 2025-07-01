@@ -1,27 +1,20 @@
-function beeramid(bonus, price) {
-    const maxCans = Math.floor(bonus / price);
-    let totalCansUsed = 0;
-    let level = 0;
-
-    while (true) {
-        level++
-        console.log(level)
-        const cansInThisLevel = level * level;
-        totalCansUsed = totalCansUsed + cansInThisLevel
-
-        if (totalCansUsed > maxCans) {
-            return level - 1;
-        } else if (totalCansUsed === maxCans) {
-            return level
-        }
+function humanReadable(fullSeconds) {
+    if (fullSeconds <= 0) {
+        return `00:00:00`
     }
+    let hours = Math.floor(fullSeconds / 3600)
+    const minutesAfterHours = fullSeconds % 3600
+    let minutes = Math.floor(minutesAfterHours / 60)
+    let seconds = minutesAfterHours % 60
+
+    hours = hours < 10 ? `0${hours}` : hours;
+    minutes = minutes < 10 ? `0${minutes}` : minutes;
+    seconds = seconds < 10 ? `0${seconds}` : seconds;
+
+    return `${hours}:${minutes}:${seconds}`
 }
 
-console.log(beeramid(1500,2))
-
-//1 4 9 16 25 36 49 64 81 100 121 144
-//1 3 5 7 9 11 13 15 17 19 21 23
-
+console.log(humanReadable(59))
 
 // REDUCE const sum = nums.reduce(function (acc - накапливающийся, curr - текущий элемент массива) { return acc + curr }, 0);
 // SPLIT - str.split(",") = "Hello,World,JavaScript" => ["Hello", "World", "JavaScript"]

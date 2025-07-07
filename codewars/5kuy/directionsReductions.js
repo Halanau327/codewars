@@ -1,18 +1,61 @@
 function dirReduc(arr) {
-    return arr.reduceRight((acc, cur) => {
-        const last = acc[0]
-        if ((last === "north" && cur === "south") ||
-            (last === "south" && cur === "north") ||
-            (last === "east" && cur === "west") ||
-            (last === "west" && cur === "east")) {
-            return acc.pop()
+    return arr.reduce((acc, cur) => {
+        const last = acc.length > 0 ? acc[acc.length - 1].toUpperCase() : null
+        const lowerCur = cur.toUpperCase()
+
+        if (last === "NORTH" && lowerCur === "SOUTH" ||
+            last === "SOUTH" && lowerCur === "NORTH" ||
+            last === "EAST" && lowerCur === "WEST" ||
+            last === "WEST" && lowerCur === "EAST") {
+            acc.pop()
         } else {
-             return acc.push(cur)
+            acc.push(lowerCur)
         }
+        return acc
     }, [])
 }
 
-dirReduc(["NORTH", "SOUTH", "EAST", "WEST", "EAST", "WEST"])
+console.log(dirReduc(["NORTH", "SOUTH", "EAST", "WEST", "EAST", "WEST", "SOUTH"]))
+
+//1 итерация ["NORTH"]
+//2 итерация []
+//3 итерация ["EAST"]
+//4 итерация []
+//5 итерация ["EAST"]
+//6 итерация []
+//7 итерация ["SOUTH"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// return arr.reduce((acc, cur) => {
+//     const last = acc.length > 0 ? acc[acc.length-1].toLowerCase() : null;
+//     const curUpper = cur.toLowerCase();
+//     if ((last === "north" && curUpper === "south") ||
+//         (last === "south" && curUpper === "north") ||
+//         (last === "east" && curUpper === "west") ||
+//         (last === "west" && curUpper === "east")) {
+//         acc.pop()
+//     }  else {
+//         acc.push(curUpper)
+//     }
+//     return acc
+// }, [])
 
 
 // REDUCE const sum = nums.reduce(function (acc - накапливающийся, curr - текущий элемент массива) { return acc + curr }, 0);

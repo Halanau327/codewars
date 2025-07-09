@@ -1,26 +1,28 @@
 function rot13(message) {
     let arr = []
-    const data = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-  let splittedMessage = message.split('')
-        for (let j = 0; j < splittedMessage.length; j++) {
-            // if (splittedMessage[j] !== String) {
-            //
-            // }
+    const lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    const uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-            let index = data.indexOf(splittedMessage[j])
 
-            if (index < 14) {
-                arr.push(data[index + 13])
-            } else if (index >= 14) {
-                arr.push(data[index - 13])
-            }
+    let splittedMessage = message.split('')
+    for (let j = 0; j < splittedMessage.length; j++) {
+        const char = splittedMessage[j]
+        const lowerIndex = lowercase.indexOf(char)
+        const upperIndex = uppercase.indexOf(char)
+
+        if (lowercase.includes(char)) {
+            arr.push(lowercase[(lowerIndex + 13) % 26])
+        } else if (uppercase.includes(char)) {
+            arr.push(uppercase[(upperIndex + 13) % 26])
+        } else {
+            arr.push(char)
         }
-
+    }
 
     return arr.join('')
 }
 
-rot13("hello")
+console.log(rot13("Hello"))
 
 // REDUCE const sum = nums.reduce(function (acc - накапливающийся, curr - текущий элемент массива) { return acc + curr }, 0);
 // SPLIT - str.split(",") = "Hello,World,JavaScript" => ["Hello", "World", "JavaScript"]
